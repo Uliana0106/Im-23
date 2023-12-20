@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+   <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+   <script src="./Lab1.js"></script>
+</head>
+<body>
+   <a-scene>
+	<a-sky src="https://stemkoski.github.io/A-Frame-Examples/images/stars.jpg" radius="4700"></a-sky>
+
+      <a-sphere id="saturn"
+               scale="0.03 0.03 0.03"
+               position="0 0 0" 
+               radius="6"
+               geometry="primitive: sphere; radius: 6; segments-height: 50"
+               material="src: url(https://upload.wikimedia.org/wikipedia/commons/1/1e/Solarsystemscope_texture_8k_saturn.jpg);"
+               rotation="0 0 0">
+      
+
+      <a-ring
+         id="ring"
+         radius-inner="7.45"
+         radius-outer="13.7"
+         position="0 0 0"
+         material="side: double; roughness: 1; src: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/06a094a4-7bd7-4bb9-b998-6c1e17f66c08/ddh2ahf-922e939b-70b8-4103-9f88-26bd1efb852f.png/v1/fill/w_1024,h_80/saturn_rings_texture_map_13k_by_fargetanik_ddh2ahf-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9ODAiLCJwYXRoIjoiXC9mXC8wNmEwOTRhNC03YmQ3LTRiYjktYjk5OC02YzFlMTdmNjZjMDhcL2RkaDJhaGYtOTIyZTkzOWItNzBiOC00MTAzLTlmODgtMjZiZDFlZmI4NTJmLnBuZyIsIndpZHRoIjoiPD0xMDI0In1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.A3B3IhD-nZr6Izd7djZnbkDnfBdBBX5C6mLhlmi2X_A);"
+         rotation="27 0 0">
+      </a-ring>
+
+      <a-light type="point" position="-50 0 0"></a-light>
+	</a-sphere>
+      <a-camera position="0 0.1 0.8"></a-camera>
+   </a-scene>
+</body>
+</html>
