@@ -1,81 +1,47 @@
 import * as THREE from './Libs/three/three.module.min.js';
 
 document.addEventListener("DOMContentLoaded", () => {
-         startRotation();
-      });
+        startRotation();
+    });
 
-      async function startRotation() {
-         const { scene, camera, renderer } = initScene();
+    function startRotation() {
+        // Set up scene, camera, and renderer
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
 
-         // Load textures
-         const saturnTexture = await loadTexture('assets/images/saturn_texture.jpg');
-         const ringTexture = await loadTexture('assets/images/ring_texture.jpg');
+        // Create Saturn
+        const saturnGeometry = new THREE.SphereGeometry(1, 32, 32);
+        const saturnMaterial = new THREE.MeshBasicMaterial({ color: 0xffa500 });
+        const saturn = new THREE.Mesh(saturnGeometry, saturnMaterial);
+        scene.add(saturn);
 
-         const saturn = createSaturn(saturnTexture);
-         const ring = createRing(ringTexture);
+        // Create Ring
+        const ringGeometry = new THREE.RingGeometry(1.2, 1.8, 32);
+        const ringMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff, side: THREE.DoubleSide });
+        const ring = new THREE.Mesh(ringGeometry, ringMaterial);
+        scene.add(ring);
 
-         // Add ambient light
-         const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-         scene.add(ambientLight);
+        // Position the ring relative to Saturn
+        ring.position.set(0, 0, 0); // Adjust the position as needed
 
-         // Add point light
-         const pointLight = new THREE.PointLight(0xffffff, 1);
-         pointLight.position.set(0, 0, 10);
-         scene.add(pointLight);
+        // Set camera position
+        camera.position.z = 5;
 
-         camera.position.z = 20;
+        // Animation loop
+        const animate = function () {
+            requestAnimationFrame(animate);
 
-         renderer.setAnimationLoop(() => {
-            rotateObject(saturn, 0.005, 'y');
-            rotateObject(ring, 0.005, 'y');
+            // Rotate Saturn around its own axis
+            saturn.rotation.y += 0.005;
+
+            // Rotate the ring along with Saturn
+            ring.rotation.y += 0.005;
 
             renderer.render(scene, camera);
-         });
-      }
+        };
 
-      function initScene() {
-         const scene = new THREE.Scene();
-         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-         const renderer = new THREE.WebGLRenderer();
-         renderer.setSize(window.innerWidth, window.innerHeight);
-         document.body.appendChild(renderer.domElement);
-
-         return { scene, camera, renderer };
-      }
-
-      function createSaturn(texture) {
-         const geometry = new THREE.SphereGeometry(6, 50, 50);
-         const material = new THREE.MeshPhongMaterial({ map: texture });
-         const saturn = new THREE.Mesh(geometry, material);
-         setScale(saturn);
-         scene.add(saturn);
-         return saturn;
-      }
-
-      function createRing(texture) {
-         const geometry = new THREE.RingGeometry(7.45, 13.7, 30);
-         const material = new THREE.MeshPhongMaterial({
-            map: texture,
-            side: THREE.DoubleSide,
-            transparent: true,
-            opacity: 0.5
-         });
-         const ring = new THREE.Mesh(geometry, material);
-         setScale(ring);
-         scene.add(ring);
-         return ring;
-      }
-
-      function rotateObject(object, speed, axis) {
-         object.rotation[axis] += speed;
-      }
-
-      function setScale(object) {
-         object.scale.set(0.03, 0.03, 0.03);
-      }
-
-      async function loadTexture(url) {
-         return new Promise((resolve) => {
-            new THREE.TextureLoader().load(url, resolve);
-         });
-      }
+        animate();
+    }
