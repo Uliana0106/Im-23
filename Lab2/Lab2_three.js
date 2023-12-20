@@ -21,7 +21,7 @@ function init() {
 
    // Create Saturn's ring
    const ringGeometry = new THREE.RingGeometry(7.45, 13.7, 50);
-   const ringTexture = new THREE.TextureLoader().load("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/06a094a4-7bd7-4bb9-b998-6c1e17f66c08/ddh2ahf-922e939b-70b8-4103-9f88-26bd1efb852f.png/v1/fill/w_1024,h_80/saturn_rings_texture_map_13k_by_fargetanik_ddh2ahf-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9...";
+   const ringTexture = new THREE.TextureLoader().load("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/06a094a4-7bd7-4bb9-b998-6c1e17f66c08/ddh2ahf-922e939b-70b8-4103-9f88-26bd1efb852f.png/v1/fill/w_1024,h_80/saturn_rings_texture_map_13k_by_fargetanik_ddh2ahf-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9...");
    const ringMaterial = new THREE.MeshBasicMaterial({ side: THREE.DoubleSide, map: ringTexture });
    const ring = new THREE.Mesh(ringGeometry, ringMaterial);
    scene.add(ring);
