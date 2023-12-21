@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.2/dist/mindar-image-aframe.prod.js"></script>
+   <script src="./Lab1.js"></script>
+</head>
+<body>
+   <a-scene mindar-image="imageTargetSrc: assets/markers/kryvyi/kryvyi.mind;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+      <a-assets>
+         <img id="brickTexture" src="https://images.unsplash.com/photo-1584505192555-4feb7834358a?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YnJpY2slMjB0ZXh0dXJlfGVufDB8fDB8fHww">
+      </a-assets>
+
+      <a-entity mindar-image-target="targetIndex: 0">
+         <a-box position="0 0 0" width="15" height="4" depth="4" material="src: #brickTexture"></a-box>
+         <a-box position="-10.77 0 -7.673" width="20" height="4" depth="4" rotation="0 -60 0" material="src: #brickTexture"></a-box>
+         <a-box position="5.5 0 -4.402" width="5" height="4" depth="4" rotation="0 90 0" material="src: #brickTexture"></a-box>
+         <a-box position="-0.4 0 -0.6" width="2" height="4" depth="4" material="src: #brickTexture"></a-box>
+         <a-box position="-6.530 0 -15.305" width="15" height="4" depth="4" material="src: #brickTexture"></a-box>
+         <a-cylinder position="5.5 0 -7.1" radius="2" height="4" material="src: #brickTexture"></a-cylinder>
+
+         <a-plane position="0 -2 0" rotation="-90 0 0" width="100" height="100" color="#888"></a-plane>
+
+         <a-box position="4.5 0.5 2" width="2" height="2" depth="0.2" material="color: #ADD8E6"></a-box>
+         <a-box position="-5.5 0.5 2" width="2" height="2" depth="0.2" material="color: #ADD8E6"></a-box>
+         <a-box position="-6 0.15 -13.4" width="2" height="2" depth="0.2" material="color: #ADD8E6"></a-box>
+         <a-box position="-9 0.15 -17.3" width="2" height="2" depth="0.2" material="color: #ADD8E6"></a-box>
+         <a-box position="7.444 0.15 -5.544" width="2" height="2" depth="0.2" rotation="0 90 0" material="color: #ADD8E6"></a-box>
+         <a-box position="-12.326 0.15 -6.311" width="2" height="2" depth="0.2" rotation="0 -60 0" material="color: #ADD8E6"></a-box>
+		 
+		       <a-camera position="5 5 25"></a-camera>
+         <a-entity main></a-entity>
+      </a-entity>
+
+
+   </a-scene>
+</body>
+</html>
+
