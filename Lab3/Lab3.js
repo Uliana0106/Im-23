@@ -88,10 +88,10 @@ function init() {
   coloredBox6.scale.set(2, 2, 0.2);
   scene.add(coloredBox6);
 
- // Create camera
+// Create camera
   camera = new THREE.PerspectiveCamera(90, window.innerWidth / window.innerHeight, 0.1, 1000);
-  camera.position.set(0, 2, -5); // Adjusted camera position
-  camera.lookAt(0, 0, 0); // Set the camera to look at the center of the scene
+  camera.position.set(0, 2, -10); // Adjusted the z-coordinate
+  camera.lookAt(0, 0, 0);
 
   // Enable ARButton
   const xrButton = ARButton.createButton(new THREE.WebGLRenderer());
