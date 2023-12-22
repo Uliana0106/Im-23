@@ -94,7 +94,7 @@ function init() {
   camera.lookAt(0, 0, 0);
 
   // Enable ARButton
-  const xrButton = ARButton.createButton(new THREE.WebGLRenderer());
+  const xrButton = ARButton.createButton(renderer);
   document.body.appendChild(xrButton);
 
   // Create renderer
