@@ -40,14 +40,14 @@ function init() {
   camera.position.set(0, 2, -5);
   camera.lookAt(0, 0, 0);
 
-  // Enable ARButton
-  const xrButton = ARButton.createButton(renderer);
-  document.body.appendChild(xrButton);
-
   // Create renderer
   renderer = new THREE.WebGLRenderer({ antialias: true });
   renderer.setSize(window.innerWidth, window.innerHeight);
   document.body.appendChild(renderer.domElement);
+
+  // Enable ARButton
+  const xrButton = ARButton.createButton(renderer);
+  document.body.appendChild(xrButton);
 
   // Handle resizing
   window.addEventListener('resize', onWindowResize, false);
