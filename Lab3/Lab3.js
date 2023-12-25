@@ -36,8 +36,8 @@ function init() {
   // ... (add other colored boxes)
 
   // Create camera
-  camera = new THREE.PerspectiveCamera(90, window.innerWidth / window.innerHeight, 0.1, 1000);
-  camera.position.set(0, 2, 30);
+  camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.1, 200);
+  camera.position.set(0, 2, 3);
   camera.lookAt(0, 0, 0);
 
   // Create renderer
